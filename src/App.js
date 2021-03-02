@@ -1,25 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useContext } from 'react'
 
-function App() {
+import { useImmerReducer} from 'use-immer'
+
+import './App.css'
+
+import StateContext from './StateContext'
+import DispatchContext from './DispatchContext'
+
+import Form from "./components/Form/Form"
+import Output from "./components/Output/Output"
+
+const App = () => {
+  const initialState = {summary: false, wordCloud: false, isLoading: false}
+
+  const appReducer = (draft, action) => {
+    switch (action.type) {
+      case "outputReady":
+        draft.summary = action.data.summary
+        draft.wordCloud = action.data.encoded_string
+        break
+      case "loadingOn":
+        draft.isLoading = true
+        break
+      case "loadingOff":
+        draft.isLoading = false
+        break
+    }
+  }
+
+  const [state, dispatch] = useImmerReducer(appReducer, initialState)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className = "container">
+      <StateContext.Provider value = { state }>
+        <DispatchContext.Provider value = { dispatch }>
+          <Form />
+          <Output />
+        </DispatchContext.Provider>
+      </StateContext.Provider>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

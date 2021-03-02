@@ -1,0 +1,28 @@
+.form-text {
+	padding: 0.5rem;
+	width: 80%;
+	background-color: #ebe1e1;
+	border: none;
+}
+
+.form-text:focus {
+	background-color: black;
+	color: white;
+}
+
+.form-button {
+	padding: 0.5rem 0.2rem;
+	width: 20%;
+	font-weight: 300;
+	border: solid 1px;
+	color: white;
+	background-color: rgba(0, 255, 0, 0.1); 
+	border: none;
+	cursor: pointer;
+}
+
+.form-button:hover {
+	background-color: green;
+	color: yellow;
+}
+
