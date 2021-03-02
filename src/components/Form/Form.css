@@ -19,6 +19,7 @@
 	background-color: rgba(0, 255, 0, 0.1); 
 	border: none;
 	cursor: pointer;
+	border-radius: none;
 }
 
 .form-button:hover {

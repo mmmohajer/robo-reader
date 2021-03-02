@@ -26,7 +26,7 @@ const Form = () => {
 		<>
 			<form onSubmit = { submitHandler }>
 				<input className = "form-text" onChange = {e => setUrl(e.target.value)} type="text" />
-				<input className = "form-button" type = "Submit"/>
+				<button className = "form-button">Submit</button>
 			</form>
 		</>
 	)
