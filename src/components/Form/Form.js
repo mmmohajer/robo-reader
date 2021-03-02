@@ -25,7 +25,7 @@ const Form = () => {
 	return (
 		<>
 			<form onSubmit = { submitHandler }>
-				<input className = "form-text" onChange = {e => setUrl(e.target.value)} type="text" />
+				<input className = "form-text" onChange = {e => setUrl(e.target.value)} type="text" placeholder = "Enter the url of a text" />
 				<button className = "form-button">Submit</button>
 			</form>
 		</>
